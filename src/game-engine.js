@@ -1,6 +1,7 @@
 import readLineSync, { question } from "readline-sync";
 import expressionResult from "./expressionResult.js";
 import * as random from "./random.js";
+import NOD from './NOD.js';
 
 export default (intro, game) => {
   console.log("Welcome to the Brain Games!");
@@ -19,6 +20,9 @@ export default (intro, game) => {
     } else if (game === "calc") {
       var expected = expressionResult(number1, operator, number2);
       var questionStr = `${number1} ${operator} ${number2}`;
+    } else if (game === "gcd") {
+      var expected = NOD([number1, number2]);
+      var questionStr = `${number1} ${number2}`;
     }
 
     console.log(`Question: ${questionStr}`);
