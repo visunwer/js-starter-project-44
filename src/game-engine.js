@@ -2,6 +2,7 @@ import readLineSync, { question } from "readline-sync";
 import expressionResult from "./expressionResult.js";
 import * as random from "./random.js";
 import NOD from './NOD.js';
+import progression from "./progression.js";
 
 export default (intro, game) => {
   console.log("Welcome to the Brain Games!");
@@ -9,8 +10,8 @@ export default (intro, game) => {
   console.log(`Hello, ${userName}!`);
   console.log(intro);
   for (let i = 0; i < 3; i += 1) {
-    const number1 = random.randomNumber();
-    const number2 = random.randomNumber();
+    const number1 = random.randomNumber(1, 100);
+    const number2 = random.randomNumber(1, 100);
     const operator = random.randomOperator();
     var win = false;
 
@@ -23,6 +24,8 @@ export default (intro, game) => {
     } else if (game === "gcd") {
       var expected = NOD([number1, number2]);
       var questionStr = `${number1} ${number2}`;
+    } else if (game === 'progression') {
+      var [questionStr, expected] = progression();
     }
 
     console.log(`Question: ${questionStr}`);

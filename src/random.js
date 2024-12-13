@@ -4,6 +4,6 @@ const randomOperator = () => {
   return operator;
 };
 
-const randomNumber = () => Math.abs(Math.round(Math.random() * 100 + 1));
+const randomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 export { randomNumber, randomOperator };
